@@ -13,4 +13,9 @@ class categoria extends Model
 
         'nombreCategoria'
     ];
+
+    // Relación de uno a muchos
+    public function servicios() {
+        return $this->hasMany('App\Models\Servicio');
+    }
 }

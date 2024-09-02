@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ServiciosController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,4 @@ Route::get('index', function () {
 
 
 Route::resource('categorias', CategoriaController::class);
+Route::resource('servicios', ServiciosController::class);

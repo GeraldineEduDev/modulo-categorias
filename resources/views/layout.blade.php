@@ -100,9 +100,13 @@
                   </ul>
                   <ul class="nav nav-collapse">
                     <li>
-                      <!-- <a href="../demo1/index.html"> -->
                       <a href="{{ url('categorias') }}">
-                        <span class="sub-item">Categoría</span>
+                        <span class="sub-item">Categorías</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('servicios') }}">
+                        <span class="sub-item">Servicios</span>
                       </a>
                     </li>
                   </ul>
