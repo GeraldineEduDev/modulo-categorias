@@ -66,7 +66,9 @@ class ServiciosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $datos = Servicio::find($id);
+        $datos1 = categoria::all();
+        return view('servicios.edit',compact('datos','datos1'));
     }
 
     /**
@@ -74,7 +76,21 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'nombre' => 'required|max:100',
+            'descripcion' => 'required|max:300',
+            'categoria_id' => 'required|max:20'
+        ]);
+
+        if($validator->fails()){
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $servicio = Servicio::find($id);
+        $servicio->update($request->all());
+        return redirect('servicios')->with('type','success')
+                                     ->with('msn','Registro creado exitosamente');
     }
 
     /**

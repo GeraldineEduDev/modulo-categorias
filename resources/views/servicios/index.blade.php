@@ -19,11 +19,26 @@
 			<th>
 				Nombre Servicio
 			</th>
+			<th>
+				Descripción
+			</th>
+			<th>
+				Categoría
+			</th>
+			<th colspan="2">
+				Acciones
+			</th>
 		</thead>
 		@foreach($datos as $servicio)
 			<tr>
 				<td>
 					{{ $servicio->nombre }}
+				</td>
+				<td>
+					{{ $servicio->descripcion }}
+				</td>
+				<td>
+					{{ $servicio->categoria->nombreCategoria }}
 				</td>
 				<td>
 					<a href="{{route('servicios.edit',$servicio->id)}}"><img src="{{url('img/editar.png')}}" width="30"></a>
