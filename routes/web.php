@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\UsuarioController;
 
 
 /*
@@ -27,3 +28,4 @@ Route::get('index', function () {
 
 Route::resource('categorias', CategoriaController::class);
 Route::resource('servicios', ServiciosController::class);
+Route::resource('usuarios', UsuarioController::class);
