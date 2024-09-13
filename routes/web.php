@@ -25,6 +25,15 @@ Route::get('index', function () {
     return view('index');
 });
 
+Route::get('home', function() {
+    return view('dashboard');
+});
+
+Route::get('logout', function () {
+    Auth::logout();
+    return redirect('index');
+});
+
 
 Route::resource('categorias', CategoriaController::class);
 Route::resource('servicios', ServiciosController::class);
