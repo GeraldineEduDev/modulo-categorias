@@ -19,11 +19,11 @@ use App\Http\Controllers\UsuarioController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('index', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('home', function() {
     return view('dashboard');
@@ -32,9 +32,18 @@ Route::get('home', function() {
 Route::get('logout', function () {
     Auth::logout();
     return redirect('index');
+})->name('index');
+
+Route::post('check',[UsuarioController::class,'check']);
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('home', function() {
+        return view('dashboard');
+    });
+
+    Route::resource('categorias', CategoriaController::class);
+    Route::resource('servicios', ServiciosController::class);
+    Route::resource('usuarios', UsuarioController::class);
 });
 
 
-Route::resource('categorias', CategoriaController::class);
-Route::resource('servicios', ServiciosController::class);
-Route::resource('usuarios', UsuarioController::class);
