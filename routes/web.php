@@ -41,9 +41,12 @@ Route::middleware(['auth'])->group(function() {
         return view('dashboard');
     });
 
+    Route::resource('usuarios', UsuarioController::class);
+});
+
+Route::middleware(['auth','administrador'])->group(function(){
     Route::resource('categorias', CategoriaController::class);
     Route::resource('servicios', ServiciosController::class);
-    Route::resource('usuarios', UsuarioController::class);
 });
 
 

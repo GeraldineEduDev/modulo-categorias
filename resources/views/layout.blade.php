@@ -99,11 +99,13 @@
                     </li>
                   </ul>
                   <ul class="nav nav-collapse">
+                    @if(Auth::user()->rol->nombre == "Administrador")
                     <li>
                       <a href="{{ url('categorias') }}">
                         <span class="sub-item">Categorías</span>
                       </a>
                     </li>
+                    @endif
                     <li>
                       <a href="{{ url('servicios') }}">
                         <span class="sub-item">Servicios</span>
